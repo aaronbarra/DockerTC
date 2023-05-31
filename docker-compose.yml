@@ -1,6 +1,6 @@
 version: '3'
 services:
-  testing-continuo:
+  dockerTC:
     build:
       context: .
       dockerfile: Dockerfile
