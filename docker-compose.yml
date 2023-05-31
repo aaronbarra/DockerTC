@@ -1,0 +1,12 @@
+version: '3'
+services:
+  testing-continuo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - REPOSITORIO=${REPOSITORIO}
+        - TAG=${TAG}
+    container_name: test-gradle
+    env_file:
+      - variable.env
