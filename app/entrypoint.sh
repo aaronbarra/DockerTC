@@ -9,4 +9,4 @@ cd /opt/framework
 chmod +x testgradle.sh
 sh testgradle.sh ${TAG}
 chmod +x xray.sh
-sh xray.sh
+sh xray.sh ${TIPO}
