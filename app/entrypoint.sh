@@ -1,6 +1,7 @@
 #!/bin/bash
 REPOSITORIO=$1
 TAG=$2
+TIPO=$3
 cd /opt
 chmod +x clone.sh
 sh clone.sh ${REPOSITORIO}
