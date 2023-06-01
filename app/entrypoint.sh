@@ -2,7 +2,6 @@
 REPOSITORIO=$1
 TAG=$2
 cd /opt
-ls
 chmod +x clone.sh
 sh clone.sh ${REPOSITORIO}
 cd /opt/framework
