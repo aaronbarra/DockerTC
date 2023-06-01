@@ -33,6 +33,7 @@ ENV PATH=${GRADLE_HOME}/bin:${PATH}
 # Ejecucion de prueba
 ENV REPOSITORIO=${REPOSITORIO}
 ENV TAG=${TAG}
+ENV TIPO=${TIPO}
 COPY app /opt
 WORKDIR /opt/
 RUN chmod +x entrypoint.sh
