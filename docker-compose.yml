@@ -7,6 +7,7 @@ services:
       args:
         - REPOSITORIO=${REPOSITORIO}
         - TAG=${TAG}
+        - TIPO=${TIPO}
     container_name: test-gradle
     env_file:
       - variable.env
