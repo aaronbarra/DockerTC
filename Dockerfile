@@ -36,4 +36,4 @@ ENV TAG=${TAG}
 COPY app /opt
 WORKDIR /opt/
 RUN chmod +x entrypoint.sh
-ENTRYPOINT /bin/bash entrypoint.sh ${REPOSITORIO} ${TAG}
+ENTRYPOINT /bin/bash entrypoint.sh ${REPOSITORIO} ${TAG} ${TIPO}
