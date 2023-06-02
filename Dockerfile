@@ -1,6 +1,5 @@
 FROM ubuntu:20.04
 # Instalar dependencias necesarias
-RUN echo "a"
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-11-jdk wget unzip gnupg curl jq git
 # Instalar Google Chrome
@@ -8,10 +7,6 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
     && apt-get update \
     && apt-get install -y google-chrome-stable
-# Instalar wkhtmltopdf
-#RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb \
-#    && apt install -y ./wkhtmltox_0.12.6-1.focal_amd64.deb \
-#    && rm wkhtmltox_0.12.6-1.focal_amd64.deb
 # Instalar Xvfb
 RUN apt-get install -y xvfb
 
@@ -31,11 +26,11 @@ ENV GRADLE_HOME=/opt/gradle-${GRADLE_VERSION}
 ENV PATH=${GRADLE_HOME}/bin:${PATH}
 
 # Ejecucion de prueba
-ENV REPOSITORIO=${REPOSITORIO}
+ENV RAMA=${RAMA}
 ENV TAG=${TAG}
 ENV TIPO=${TIPO}
 COPY app /opt
 WORKDIR /opt/
 RUN chmod +x entrypoint.sh
-#ENTRYPOINT /bin/bash entrypoint.sh ${REPOSITORIO} ${TAG} ${TIPO}
+#ENTRYPOINT /bin/bash entrypoint.sh ${RAMA} ${TAG} ${TIPO}
 ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
