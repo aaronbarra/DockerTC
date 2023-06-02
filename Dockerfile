@@ -9,22 +9,18 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     && apt-get install -y google-chrome-stable
 # Instalar Xvfb
 RUN apt-get install -y xvfb
-
 # Configurar variables de entorno
 ENV DISPLAY=:1
 ENV JAVA_HOME='/usr/lib/jvm/java-11-openjdk-amd64'
 ENV PATH=${JAVA_HOME}/bin:${PATH}
-
 # Descargar e instalar Gradle
 ENV GRADLE_VERSION=8.0.1
 RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip \
     && unzip -d /opt gradle-${GRADLE_VERSION}-bin.zip \
     && rm gradle-${GRADLE_VERSION}-bin.zip
-
 # Configurar variables de entorno de Gradle
 ENV GRADLE_HOME=/opt/gradle-${GRADLE_VERSION}
 ENV PATH=${GRADLE_HOME}/bin:${PATH}
-
 # Ejecucion de prueba
 ENV RAMA=${RAMA}
 ENV TAG=${TAG}
