@@ -28,5 +28,4 @@ ENV TIPO=${TIPO}
 COPY app /opt
 WORKDIR /opt/
 RUN chmod +x entrypoint.sh
-#ENTRYPOINT /bin/bash entrypoint.sh ${RAMA} ${TAG} ${TIPO}
-ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
+ENTRYPOINT /bin/bash entrypoint.sh ${RAMA} ${TAG} ${TIPO}
