@@ -1,13 +1,13 @@
 version: '3'
 services:
-  docker-tc:
+  test-gradle-lab:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        - REPOSITORIO=${REPOSITORIO}
+        - RAMA=${RAMA}
         - TAG=${TAG}
         - TIPO=${TIPO}
-    container_name: test-gradle
+    container_name: test-gradle-lab
     env_file:
       - variable.env
