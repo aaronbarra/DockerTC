@@ -14,4 +14,3 @@ fi
 echo "Repositorio clonado con éxito"
 sed -i 's/"summary": "TITULOJSON"/"summary": "Clonacion exitosa"/g' integracion/jira.json
 curl -H "Content-Type: multipart/form-data" -X POST -F info=@integracion/jira.json -F results=@integracion/prueba-passed.json -H "Authorization: Bearer $token" https://xray.cloud.getxray.app/api/v2/import/execution/cucumber/multipart
-ls 
