@@ -8,6 +8,7 @@ export token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_a
 if [ "$?" -ne 0 ]; then
     echo "Error al clonar el repositorio "
     sed -i 's/"summary": "TITULOJSON"/"summary": "Clonacion exitosa"/g' integracion/jira.json
+    sed -i 's/"description": "Fallo al clonar": "Clonacion exitosa"/g' integracion/jira.json
     curl -H "Content-Type: multipart/form-data" -X POST -F info=@integracion/jira.json  -F results=@integracion/prueba-failed.json -H "Authorization: Bearer $token" https://xray.cloud.getxray.app/api/v2/import/execution/cucumber/multipart
     exit 1
 fi
